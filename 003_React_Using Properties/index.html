@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>002_ReactJS_React Components</title>
+	<title>003_ReactJS_React Properties</title>
 	<!-- ReactJS CDN -->
 	<script src="https://fb.me/react-0.13.3.min.js"></script>
 	<!-- Babel CDN -->
@@ -20,16 +20,20 @@
 		var MyComponent = React.createClass({
 			// Render method
 			render: function(){
-				return <div>My Component</div>
+				return <div>
+				<h1>{ this.props.text }</h1>
+				<p>{ this.props.children }</p>
+				</div>
 			}
 		});
 
 
 		// to reuse a React component, place it between div tags
 		React.render(<div>
-					<MyComponent />
-					<MyComponent />
-					<MyComponent />
+					// adding properties, in this case 'text'
+					<MyComponent text="Hello World">This is hello</MyComponent>
+					<MyComponent text="How are you">This is how are you</MyComponent>
+					<MyComponent text="Goodbye">This is goodbye</MyComponent>
 					</div>, document.getElementById('react-container'));
 
 
