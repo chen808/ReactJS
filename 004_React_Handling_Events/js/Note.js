@@ -1,5 +1,5 @@
 var Note = React.createClass({
-
+    // Functions!
     edit: function() {
         alert('editing note');
     },
@@ -8,6 +8,7 @@ var Note = React.createClass({
         alert('removing note');
     },
 
+    // adding onClick functions to handle events
     render: function() {
         return (
             <div className="note">

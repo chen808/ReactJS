@@ -1,4 +1,8 @@
 // Demonstrating States that is triggered by Events
+
+// 'Refs' are a reliable way to access the properties of that
+// underlying DOM node
+
 var Note = React.createClass({
 
     // this is the default state of the Note
@@ -15,6 +19,11 @@ var Note = React.createClass({
     },
 
     save: function() {
+        // val is getting whatever comes from ref 'newText' on line #45
+        var val = this.refs.newText.getDOMNode().value;
+        // print out the val
+        alert("TODO: Save note value " + val);
+
         this.setState({editing: false});
     },
 
@@ -34,10 +43,11 @@ var Note = React.createClass({
     },
 
     // this allow us to edit our note
+    // ref="newText"
     renderForm: function() {
         return (
             <div className="note">
-                <textarea defaultValue={this.props.children}
+                <textarea ref="newText" defaultValue={this.props.children}
                 className="form-control"></textarea>
                 <button onClick={this.save} className="btn btn-success btn-sm glyphicon glyphicon-floppy-disk" />
             </div>

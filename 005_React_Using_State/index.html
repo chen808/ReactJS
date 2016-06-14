@@ -17,11 +17,15 @@
     <script type="text/jsx" >
         // Component
         var Checkbox = React.createClass({
+            // initialize default state
             getInitialState: function() {
+                // will return an object
                 return {checked: true}
             },
 
             handleCheck: function() {
+                // setState is the primary method that we use to
+                // trigger any user interface updates from event handlers
                 this.setState({checked: !this.state.checked})
             },
 
@@ -29,19 +33,23 @@
 
                 var msg;
 
+                // if checked is true
                 if(this.state.checked) {
                     msg = "checked";
                 }
                 else {
                     msg = "unchecked";
                 }
-
-                return(<div>
-                        <input type="checkbox" onChange={this.handleCheck} defaultChecked={this.state.checked} />
-                        <p>This box is {msg}.</p>
-                    </div>);
+                // each time the checkbox is triggered, the 'onChange' activates 'handleCheck'
+                return( <div>
+                          <input type="checkbox" onChange={this.handleCheck} defaultChecked={this.state.checked} />
+                          <p>This box is {msg}.</p>
+                        </div>);
             }
         });
+
+
+
 
         React.render(<Checkbox />, document.getElementById('react-container')); 
 
